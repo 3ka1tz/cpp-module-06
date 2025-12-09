@@ -94,7 +94,7 @@ void ScalarConverter::convert(const std::string& literal)
     // FLOAT
     float f = std::strtof(literal.c_str(), &endptr);
 
-    if ((*endptr == 'f' || *endptr == 'F') && *(endptr + 1) == '\0' && errno != ERANGE)
+    if ((*endptr == 'f' || *endptr == 'F') && *(endptr + 1) == '\0' && errno != ERANGE && static_cast<int>(f) >= std::numeric_limits<int>::min() && static_cast<int>(f) <= std::numeric_limits<int>::max())
     {
         if (f < 0 || f > 127)
         {
@@ -108,6 +108,11 @@ void ScalarConverter::convert(const std::string& literal)
         {
             std::cout << "char: \'" << static_cast<char>(f) << "\'\n";
         }
+        std::cout << "int: " << f << "\n";
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(f) << "f\n";
+        std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << "\n";
+
+        return;
     }
 
     // ----------------------------------------------------
