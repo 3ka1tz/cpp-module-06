@@ -7,10 +7,6 @@
 #include <iostream>
 #include <limits>
 
-ScalarConverter::ScalarConverter() {}
-
-ScalarConverter::~ScalarConverter() {}
-
 void ScalarConverter::convert(const std::string& literal)
 {
     char* endptr;
