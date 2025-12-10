@@ -18,7 +18,7 @@ Some Core Test Cases
 
     Char: 'a', 'Z', '0'
 
-    Int: 0, 42, -42, INT_MAX, INT_MIN
+    Int: 0, 42, -42, +2147483647, -2147483648
 
     Float: 0.0f, 42.0f, -42.5f, 123456.789f
 
