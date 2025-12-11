@@ -15,4 +15,4 @@ class ScalarConverter
         ~ScalarConverter();
 };
 
-#endif // SCALARCONVERTER_HPP
+#endif
