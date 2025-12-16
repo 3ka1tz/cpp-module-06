@@ -1,5 +1,4 @@
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#pragma once
 
 #include <string>
 
@@ -13,5 +12,3 @@ private:
     ScalarConverter& operator=(const ScalarConverter& other);
     ~ScalarConverter();
 };
-
-#endif
