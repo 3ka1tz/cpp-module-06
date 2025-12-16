@@ -5,7 +5,7 @@
 #include <iostream>
 
 Base* generate() {
-    switch (rand() % 3) {
+    switch (std::rand() % 3) {
         case 0 : return new A();
         case 1 : return new B();
         case 2 : return new C();
@@ -14,12 +14,9 @@ Base* generate() {
 }
 
 void identify(Base* p) {
-    if (dynamic_cast<A*>(p))
-        std::cout << "A is the actual type of the object pointed by p" << std::endl;
-    else if (dynamic_cast<B*>(p))
-        std::cout << "B is the actual type of the object pointed by p" << std::endl;
-    else if (dynamic_cast<C*>(p))
-        std::cout << "C is the actual type of the object pointed by p" << std::endl;
+    if (dynamic_cast<A*>(p)) std::cout << "A is the actual type of the object pointed by p" << std::endl;
+    else if (dynamic_cast<B*>(p)) std::cout << "B is the actual type of the object pointed by p" << std::endl;
+    else if (dynamic_cast<C*>(p)) std::cout << "C is the actual type of the object pointed by p" << std::endl;
 }
 
 void identify(Base& p) {
@@ -43,7 +40,7 @@ void identify(Base& p) {
 }
 
 int main() {
-    srand(time(NULL));
+    std::srand(time(NULL));
 
     Base* p = generate();
 
