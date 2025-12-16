@@ -1,12 +1,11 @@
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#pragma once
 
 #include <stdint.h>
 #include <string>
 
 struct Data {
+    int id;
     std::string name;
-    unsigned int age;
 };
 
 class Serializer {
@@ -20,5 +19,3 @@ private:
     Serializer& operator=(const Serializer& other);
     ~Serializer();
 };
-
-#endif

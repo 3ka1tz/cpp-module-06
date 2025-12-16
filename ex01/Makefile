@@ -1,26 +1,24 @@
-NAME = serialize
-
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRCS = main.cpp \
-       Serializer.cpp
+TARGET = serializer
 
+SRCS = main.cpp Serializer.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(NAME): $(OBJS)
-	$(CXX) -o $@ $^
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(TARGET)
 
 re: fclean all
 

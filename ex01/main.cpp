@@ -3,14 +3,14 @@
 #include <iostream>
 
 int main() {
-    Data sampleData;
-    sampleData.name = "Marvin";
-    sampleData.age = 42;
+    Data d;
+    d.id = 42;
+    d.name = "Marvin";
 
-    uintptr_t serialized = Serializer::serialize(&sampleData);
+    uintptr_t serialized = Serializer::serialize(&d);
     Data* deserialized = Serializer::deserialize(serialized);
 
-    std::cout << "    original_ptr: " << &sampleData << "\n"
+    std::cout << "    original_ptr: " << &d << "\n"
               << "  serialized_ptr: " << serialized << "\n"
               << "deserialized_ptr: " << deserialized << std::endl;
 }
