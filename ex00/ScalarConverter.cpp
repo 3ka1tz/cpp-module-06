@@ -9,62 +9,62 @@
 
 void ScalarConverter::convert(const std::string& literal)
 {
-    char* endptr;
-
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // NAN, NANF
-    if (literal == "nan" || literal == "nanf") {
+    if (literal == "nan" || literal == "nanf")
+    {
         std::cout << "char: impossible\n"
                   << "int: impossible\n"
                   << "float: nanf\n"
-                  << "double: nan" << std::endl;
+                  << "double: nan\n";
 
         return;
     }
 
-    // ----------------------------------------------------
-    // +INF, +INFF
-    if (literal == "inf" || literal == "inff" || literal == "+inf" || literal == "+inff") {
+    // ---------------------------------------------------------------------------------------------
+    // INF, INFF, +INF, +INFF
+    if (literal == "inf" || literal == "inff" || literal == "+inf" || literal == "+inff")
+    {
         std::cout << "char: impossible\n"
                   << "int: impossible\n"
-                  << "float: +inff\n"
-                  << "double: +inf" << std::endl;
+                  << "float: inff\n"
+                  << "double: inf\n";
 
         return;
     }
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // -INF, -INFF
     if (literal == "-inf" || literal == "-inff") {
         std::cout << "char: impossible\n"
                   << "int: impossible\n"
                   << "float: -inff\n"
-                  << "double: -inf" << std::endl;
+                  << "double: -inf\n";
 
         return;
     }
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // CHAR
-    if (literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0])) {
+    if (literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0]))
+    {
         char c = literal[0];
 
         std::cout << "char: \'" << c << "\'\n"
                   << "int: " << static_cast<int>(c) << "\n"
                   << "float: " << static_cast<float>(c) << "\n"
-                  << "double: " << static_cast<double>(c) << std::endl;
+                  << "double: " << static_cast<double>(c) << "\n";
 
         return;
     }
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // INT
+    char* endptr;
     errno = 0;
     long int i = std::strtol(literal.c_str(), &endptr, 10);
 
-    if (*endptr == '\0' && errno != ERANGE
-        && i >= std::numeric_limits<int>::min()
-        && i <= std::numeric_limits<int>::max())
+    if (*endptr == '\0' && errno != ERANGE && i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max())
     {
         std::cout << "char: ";
         if (i < 0 || i > 127)
@@ -83,11 +83,9 @@ void ScalarConverter::convert(const std::string& literal)
         std::cout << "int: " << i << std::endl;
         std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
         std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
-
-        return;
     }
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // FLOAT
     errno = 0;
     float f = std::strtof(literal.c_str(), &endptr);
@@ -125,7 +123,7 @@ void ScalarConverter::convert(const std::string& literal)
         return;
     }
 
-    // ----------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     // DOUBLE
     errno = 0;
     double d = std::strtod(literal.c_str(), &endptr);
@@ -163,9 +161,13 @@ void ScalarConverter::convert(const std::string& literal)
         return;
     }
 
-    // ----------------------------------------------------
-    std::cout << "char: impossible\n"
-              << "int: impossible\n"
-              << "float: impossible\n"
-              << "double: impossible" << std::endl;
+    // ---------------------------------------------------------------------------------------------
+    // INVALID INPUT
+    else
+    {
+        std::cout << "char: impossible\n"
+                  << "int: impossible\n"
+                  << "float: impossible\n"
+                  << "double: impossible\n";
+    }
 }
