@@ -14,8 +14,8 @@ void ScalarConverter::convert(const std::string& literal) {
     if (literal == "nan" || literal == "nanf") {
         std::cout << "  char: impossible" << std::endl;
         std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: nanf"       << std::endl;
-        std::cout << "double: nan"        << std::endl;
+        std::cout << " float: nanf" << std::endl;
+        std::cout << "double: nan"  << std::endl;
 
         return;
     }
@@ -27,8 +27,8 @@ void ScalarConverter::convert(const std::string& literal) {
     if (literal == "inf" || literal == "inff" || literal == "+inf" || literal == "+inff") {
         std::cout << "  char: impossible" << std::endl;
         std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: inff"       << std::endl;
-        std::cout << "double: inf"        << std::endl;
+        std::cout << " float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
 
         return;
     }
@@ -40,8 +40,8 @@ void ScalarConverter::convert(const std::string& literal) {
     if (literal == "-inf" || literal == "-inff") {
         std::cout << "  char: impossible" << std::endl;
         std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: -inff"      << std::endl;
-        std::cout << "double: -inf"       << std::endl;
+        std::cout << " float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
 
         return;
     }
@@ -53,10 +53,10 @@ void ScalarConverter::convert(const std::string& literal) {
     if (literal.length() == 1 && !std::isdigit(literal[0]) && std::isprint(literal[0])) {
         char c = literal[0];
 
-        std::cout << "char: \'" << c << "\'\n"
-                  << "int: " << static_cast<int>(c) << "\n"
-                  << "float: " << static_cast<float>(c) << "\n"
-                  << "double: " << static_cast<double>(c) << "\n";
+        std::cout << "  char: " << "\'" << c << "\'" << std::endl;
+        std::cout << "   int: " << static_cast<int>(c) << std::endl;
+        std::cout << " float: " << static_cast<float>(c) << std::endl;
+        std::cout << "double: " << static_cast<double>(c) << std::endl;
 
         return;
     }
