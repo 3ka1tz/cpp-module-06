@@ -14,27 +14,27 @@ Base* generate() {
 }
 
 void identify(Base* p) {
-    if (dynamic_cast<A*>(p)) std::cout << "A is the actual type of the object pointed by p" << std::endl;
-    else if (dynamic_cast<B*>(p)) std::cout << "B is the actual type of the object pointed by p" << std::endl;
-    else if (dynamic_cast<C*>(p)) std::cout << "C is the actual type of the object pointed by p" << std::endl;
+    if (dynamic_cast<A*>(p)) std::cout << "A is the actual type of the object pointed by p." << std::endl;
+    else if (dynamic_cast<B*>(p)) std::cout << "B is the actual type of the object pointed by p." << std::endl;
+    else if (dynamic_cast<C*>(p)) std::cout << "C is the actual type of the object pointed by p." << std::endl;
 }
 
 void identify(Base& p) {
     try {
         (void)dynamic_cast<A&>(p);
-        std::cout << "A is the actual type of the object referenced by p" << std::endl;
+        std::cout << "A is the actual type of the object referenced by p." << std::endl;
         return;
     } catch (...) {}
 
     try {
         (void)dynamic_cast<B&>(p);
-        std::cout << "B is the actual type of the object referenced by p" << std::endl;
+        std::cout << "B is the actual type of the object referenced by p." << std::endl;
         return;
     } catch (...) {}
 
     try {
         (void)dynamic_cast<C&>(p);
-        std::cout << "C is the actual type of the object referenced by p" << std::endl;
+        std::cout << "C is the actual type of the object referenced by p." << std::endl;
         return;
     } catch (...) {}
 }
@@ -44,8 +44,12 @@ int main() {
 
     Base* p = generate();
 
+    std::cout << std::endl;
+
     identify(p);
     identify(*p);
+
+    std::cout << std::endl;
 
     delete p;
 }
