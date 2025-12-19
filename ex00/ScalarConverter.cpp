@@ -12,10 +12,10 @@ void ScalarConverter::convert(const std::string& literal) {
     // NAN, NANF
 
     if (literal == "nan" || literal == "nanf") {
-        std::cout << "  char: impossible" << std::endl;
-        std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: nanf" << std::endl;
-        std::cout << "double: nan"  << std::endl;
+        std::cout << "  char: impossible\n"
+                  << "   int: impossible\n"
+                  << " float: nanf\n"
+                  << "double: nan" << std::endl;
 
         return;
     }
@@ -25,10 +25,10 @@ void ScalarConverter::convert(const std::string& literal) {
     // INF, INFF, +INF, +INFF
 
     if (literal == "inf" || literal == "inff" || literal == "+inf" || literal == "+inff") {
-        std::cout << "  char: impossible" << std::endl;
-        std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: inff" << std::endl;
-        std::cout << "double: inf" << std::endl;
+        std::cout << "  char: impossible\n"
+                  << "   int: impossible\n"
+                  << " float: inff\n"
+                  << "double: inf" << std::endl;
 
         return;
     }
@@ -38,10 +38,10 @@ void ScalarConverter::convert(const std::string& literal) {
     // -INF, -INFF
 
     if (literal == "-inf" || literal == "-inff") {
-        std::cout << "  char: impossible" << std::endl;
-        std::cout << "   int: impossible" << std::endl;
-        std::cout << " float: -inff" << std::endl;
-        std::cout << "double: -inf" << std::endl;
+        std::cout << "  char: impossible\n"
+                  << "   int: impossible\n"
+                  << " float: -inff\n"
+                  << "double: -inf" << std::endl;
 
         return;
     }
@@ -89,6 +89,8 @@ void ScalarConverter::convert(const std::string& literal) {
         std::cout << "int: " << i << std::endl;
         std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
         std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+
+        return;
     }
     
 
@@ -162,8 +164,8 @@ void ScalarConverter::convert(const std::string& literal) {
     // ---------------------------------------------------------------------------------------------
     // Invalid input
 
-    std::cout << "char: impossible\n"
-              << "int: impossible\n"
-              << "float: impossible\n"
-              << "double: impossible\n";
+    std::cout << "  char: impossible\n"
+              << "   int: impossible\n"
+              << " float: impossible\n"
+              << "double: impossible" << std::endl;
 }
